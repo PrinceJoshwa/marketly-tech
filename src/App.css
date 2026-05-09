@@ -1,0 +1,20 @@
+/* App.css — minimal, typography handled in index.css/tailwind */
+.App {
+  min-height: 100vh;
+}
+
+.scrollbar-thin::-webkit-scrollbar { height: 8px; width: 8px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 4px; }
+.scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, #e4e4e7 1px, transparent 1px),
+    linear-gradient(to bottom, #e4e4e7 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.dropzone-active {
+  border-color: #0047FF !important;
+  background-color: #EFF4FF !important;
+}
