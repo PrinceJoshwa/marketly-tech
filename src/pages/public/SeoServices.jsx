@@ -1835,6 +1835,63 @@ function SeoReasonsProof() {
             </p>
           </div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 rounded-2xl border border-zinc-200 bg-white p-5 md:p-8 shadow-[0_20px_60px_-32px_rgba(15,18,18,0.25)]"
+          >
+            <div className="grid lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-6">
+                <div className="rounded-2xl border border-zinc-200 bg-[#F8FAF7] p-5 md:p-7 overflow-hidden">
+                  <div className="text-center text-2xl md:text-3xl font-extrabold text-[#0F1212]">
+                    Why <span className="text-[#F36B21]">SEO</span> Matters
+                  </div>
+                  <div className="mt-7 relative aspect-[4/3] max-w-[520px] mx-auto">
+                    <div className="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white border border-zinc-200 shadow-[0_18px_45px_-28px_rgba(15,18,18,0.4)] grid place-items-center z-20">
+                      <img
+                        src="https://ik.imagekit.io/j0xzq9pns/marketly/rocket.jpg"
+                        alt="SEO rocket"
+                        className="h-28 w-28 object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    {[
+                      ["Visibility", "Higher search rankings boost your brand visibility.", "left-[2%] top-[9%]", "bg-[#FFF4E9] text-[#F36B21]"],
+                      ["Organic Traffic", "Higher search rankings boost your brand's visibility.", "right-[0%] top-[10%]", "bg-[#EAF3FF] text-[#0B5BD3]"],
+                      ["Cost-Effective", "Save money with long-term SEO vs paid ads.", "left-[2%] bottom-[19%]", "bg-[#FFF4E9] text-[#F36B21]"],
+                      ["User Experience", "Enhance usability for better visitor experience.", "right-[1%] bottom-[20%]", "bg-[#EAF3FF] text-[#0B5BD3]"],
+                      ["Competitive Edge", "Outperform competitors with strong SEO.", "left-1/2 bottom-[2%] -translate-x-1/2", "bg-[#FFF4E9] text-[#F36B21]"],
+                    ].map(([title, text, pos, tone]) => (
+                      <div key={title} className={`absolute ${pos} max-w-[165px] rounded-xl bg-white border border-zinc-200 p-3 shadow-sm`}>
+                        <div className={`inline-flex rounded-full px-2.5 py-1 text-[10px] font-bold ${tone}`}>{title}</div>
+                        <p className="mt-2 text-[10px] leading-snug text-zinc-500">{text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="lg:col-span-6">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C87A50] mb-4">Search visibility engine</div>
+                <h3 className="text-2xl md:text-4xl font-extrabold leading-tight text-[#0F1212]">
+                  SEO connects discovery, trust, content, and conversion.
+                </h3>
+                <p className="mt-5 text-zinc-600 leading-relaxed">
+                  SEO is not just rankings. It improves how customers find, trust, and choose a business before they ever speak to sales.
+                </p>
+                <div className="mt-7 grid sm:grid-cols-3 gap-3">
+                  {["Be found earlier", "Earn trust faster", "Reduce paid dependency"].map((item) => (
+                    <div key={item} className="rounded-sm border border-zinc-200 bg-zinc-50 p-4 text-sm font-bold text-[#0F1212]">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SEO_REASONS.map((reason, i) => (
               <motion.div 

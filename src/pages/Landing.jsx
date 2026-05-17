@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowUpRight, Award, CheckCircle2, Star, Sparkles, TrendingUp, Play, Activity, Bot, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Award, CheckCircle2, Star, Sparkles, TrendingUp, Play, Pause, Volume2, VolumeX, Activity, Bot, ShieldCheck, Building2, GraduationCap, ShoppingCart, TicketCheck, Search, BarChart3, MousePointerClick, Globe2, Smartphone, LayoutDashboard } from "lucide-react";
 import PublicLayout from "@/components/layout/PublicLayout";
 import { SERVICES, CLIENT_LOGOS, TESTIMONIALS, HERO_STATS, AWARDS } from "@/data/publicContent";
 import { CASE_STUDIES } from "@/data/caseStudies";
@@ -25,8 +25,10 @@ export default function Home() {
       <CertifiedExcellence />
       <AIVisibilityAudit />
       <ServicesPreview />
+      <ProductSystems />
       <FeaturedWork />
       <ProjectShowcase limit={4} />
+      <GrowthProofDeck />
       <AuditCTA />
       <WhyUs />
       <LatestBlog />
@@ -67,16 +69,13 @@ function Hero() {
               className="flex flex-wrap items-center gap-2 mb-6"
             >
               <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#134E35]/5 border border-[#134E35]/15 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#134E35] rounded-sm">
-                <Award className="h-3.5 w-3.5" /> AdAsia Winner 2024
+                <Award className="h-3.5 w-3.5" /> AdAsia Award 2025
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-zinc-200 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-700 rounded-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#0B5BD3]" /> Google Partner
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-zinc-200 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-700 rounded-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#0081FB]" /> Meta Business Partner
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-zinc-200 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-700 rounded-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#134E35]" /> ISO 27001
               </span>
             </motion.div>
 
@@ -148,6 +147,14 @@ function Hero() {
                 </div>
               ))}
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.65 }}
+              className="mt-5 text-center sm:text-left text-sm md:text-base font-semibold text-zinc-700"
+            >
+              15+ brands | 98% client retention | 4 yrs | Rs. 3L+ monthly ad spends
+            </motion.div>
           </motion.div>
 
           {/* RIGHT — 3-image collage with parallax */}
@@ -217,7 +224,7 @@ function Hero() {
               </motion.div>
 
               {/* Video play pill — bottom-right floating */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
@@ -230,7 +237,7 @@ function Hero() {
                   <div className="font-bold">Our reel</div>
                   <div className="text-white/60 text-[10px]">45 sec</div>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </div>
           </motion.div>
         </div>
@@ -282,10 +289,11 @@ function FounderAward() {
               <Award className="h-3.5 w-3.5" /> Founder-led · Award-winning
             </div>
             <h2 className="text-[34px] sm:text-[42px] lg:text-[56px] font-extrabold leading-[1.05] tracking-[-0.02em]">
-              Built by a CMO who got tired of agencies.
+Built by a Founder who prioritizes Performance over Promises.
             </h2>
             <p className="mt-6 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl">
-              Marketly was founded by <span className="font-bold text-white">Ramya Prasanna</span> — a former in-house CMO who spent a decade on the receiving end of agency excuses. In 2024, she was recognised at the AdAsia India <span className="font-bold text-white">Marketing Innovation Awards</span> for building the very agency she wished she'd had access to.
+              {/* Marketly was founded by <span className="font-bold text-white">Ramya Prasanna</span> — a former in-house CMO who spent a decade on the receiving end of agency excuses. In 2024, she was recognised at the AdAsia India <span className="font-bold text-white">Marketing Innovation Awards</span> for building the very agency she wished she'd had access to. */}
+              Marketly was founded by <span className="font-bold text-white">Ramya Prasanna</span> — a serial entrepreneur who saw a gap between creative marketing and actual business growth. With a background in scaling high-impact brands at Simplilearn and Scaler, she built Marketly to deliver the transparency and data-driven results that modern founders demand. Recognized for her work in Digital Innovation, she now leads a team dedicated to transforming brands through architectural precision and marketing excellence.
             </p>
             <div className="mt-10 grid sm:grid-cols-3 gap-4">
               {[
@@ -339,11 +347,11 @@ function CertifiedExcellence() {
       accent: "bg-[#0081FB]",
     },
     {
-      title: "Privacy-first operations",
-      status: "ISO 27001 aligned",
-      desc: "Your ad accounts, customer lists, dashboards, and business data stay protected inside clean operating workflows.",
-      Icon: ShieldCheck,
-      accent: "bg-[#134E35]",
+      title: "AdAsia Excellence Award",
+      status: "Global Iconic Excellence 2025",
+      desc: "Recognition for building performance-led growth systems across campaigns, websites, creative, and marketing operations.",
+      Icon: Award,
+      accent: "bg-[#C87A50]",
     },
   ];
 
@@ -358,7 +366,7 @@ function CertifiedExcellence() {
             </h2>
           </div>
           <p className="md:col-span-5 text-base md:text-lg text-zinc-600 leading-relaxed">
-            Adapted from the reference section, but designed for the current Marketly system: crisp cards, restrained badges, and clear proof points.
+            Google, Meta, and AdAsia-recognised work, presented with clear proof points and senior execution discipline.
           </p>
         </div>
 
@@ -609,6 +617,101 @@ function ServicesPreview() {
   );
 }
 
+/* ========================= MOBILE APP & PRODUCT SYSTEMS ========================= */
+function ProductSystems() {
+  const products = [
+    {
+      Icon: Building2,
+      title: "CRM tool for real estate",
+      text: "Lead capture, broker follow-ups, site visits, inventory and booking-stage visibility for real-estate teams.",
+      meta: "Pipeline + CRM",
+    },
+    {
+      Icon: TicketCheck,
+      title: "Ticket management system",
+      text: "A clean tracking interface for service requests, owners, priority, SLA status and resolution history.",
+      meta: "Tracking interface",
+    },
+    {
+      Icon: ShoppingCart,
+      title: "Grocery e-commerce + mobile app",
+      text: "Catalogue, cart, payments, delivery slots and repeat-order journeys for grocery and neighbourhood retail.",
+      meta: "Store + app",
+    },
+    {
+      Icon: GraduationCap,
+      title: "School & college attendance tool",
+      text: "Class-wise attendance, admin dashboards, parent updates and daily reporting workflows for institutions.",
+      meta: "Education ops",
+    },
+  ];
+
+  return (
+    <section className="py-20 md:py-28 bg-white border-y border-zinc-200 overflow-hidden" data-testid="home-product-systems">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-10">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 bg-[#0F1212] text-white rounded-sm p-8 md:p-10 relative overflow-hidden min-h-[420px] flex flex-col justify-between"
+          >
+            <div className="absolute inset-0 opacity-[0.06]" style={{backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "28px 28px"}} />
+            <div className="relative">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C87A50] mb-5">Marketly tech</div>
+              <h2 className="text-[34px] sm:text-[42px] lg:text-[52px] font-extrabold leading-[1.05] tracking-[-0.02em]">
+                Mobile apps and product systems.
+              </h2>
+              <p className="mt-5 text-base md:text-lg text-white/70 leading-relaxed">
+                Custom tools for teams that need more than a website: dashboards, apps, CRMs and workflow systems that keep operations moving.
+              </p>
+            </div>
+            <div className="relative mt-10 grid grid-cols-3 gap-3">
+              {[
+                { k: "04", v: "product lines" },
+                { k: "UI", v: "tracking flows" },
+                { k: "App", v: "mobile ready" },
+              ].map((stat) => (
+                <div key={stat.v} className="border border-white/10 bg-white/[0.035] p-4 rounded-sm">
+                  <div className="text-2xl font-extrabold text-[#C87A50]">{stat.k}</div>
+                  <div className="mt-2 text-[10px] uppercase tracking-[0.14em] text-white/45">{stat.v}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+              {products.map(({ Icon, title, text }, i) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: i * 0.06 }}
+                  className="group bg-zinc-50 border border-zinc-200 rounded-sm p-6 md:p-7 hover:bg-white hover:border-[#134E35] hover:shadow-[0_18px_44px_-26px_rgba(19,78,53,0.32)] transition-all duration-300"
+                >
+                  <div className="flex items-start justify-between gap-5">
+                    <div className="h-12 w-12 rounded-sm bg-white border border-zinc-200 grid place-items-center group-hover:border-[#134E35]/25">
+                      <Icon className="h-5 w-5 text-[#134E35]" />
+                    </div>
+                    <div className="text-[10px] uppercase tracking-[0.14em] font-semibold text-zinc-400">{products[i].meta}</div>
+                  </div>
+                  <h3 className="mt-7 text-xl font-bold text-[#0F1212] leading-tight">{title}</h3>
+                  <p className="mt-3 text-sm text-zinc-600 leading-relaxed">{text}</p>
+                  <div className="mt-6 h-px bg-zinc-200" />
+                  <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-[#134E35]">
+                    Product build <ArrowRight className="h-3.5 w-3.5" />
+                  </div>
+                </motion.div>
+              ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ========================= FEATURED WORK ========================= */
 function FeaturedWork() {
   const featured = CASE_STUDIES.slice(0, 4);
@@ -619,7 +722,7 @@ function FeaturedWork() {
           <div className="max-w-2xl">
             <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C87A50] mb-4">Selected work</div>
             <h2 className="text-[34px] sm:text-[42px] lg:text-[52px] font-extrabold leading-[1.05] tracking-[-0.02em] text-[#0F1212]">
-              Numbers the board actually reads.
+              Website systems built to convert.
             </h2>
           </div>
           <Link to="/work" className="inline-flex items-center gap-2 text-sm font-semibold text-[#134E35] hover:text-[#0D3A26]">
@@ -678,6 +781,369 @@ function FeaturedWork() {
   );
 }
 
+/* ========================= FIGMA GROWTH PROOF + PRESENTATION SCROLL ========================= */
+function GrowthProofDeck() {
+  const reviewPlatforms = [
+    { name: "Google", score: "4.9", tone: "text-[#4285F4]", sub: "reviews" },
+    { name: "Clutch", score: "4.8", tone: "text-[#0F1212]", sub: "agency profile" },
+    { name: "Quora", score: "4.7", tone: "text-[#B92B27]", sub: "answers" },
+    { name: "GoodFirms", score: "4.8", tone: "text-[#2F80ED]", sub: "listed firm" },
+    { name: "Trustpilot", score: "4.9", tone: "text-[#00B67A]", sub: "trust score" },
+    { name: "Behance", score: "4.8", tone: "text-[#1769FF]", sub: "creative work" },
+  ];
+
+  const automationLogos = [
+    { name: "Adobe", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/OIP.webp?updatedAt=1779005081738" },
+    { name: "Amazon", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/amazon.webp?updatedAt=1779005081313" },
+    { name: "Google Ads", src: "https://cdn.simpleicons.org/googleads/4285F4" },
+    { name: "Meta", src: "https://cdn.simpleicons.org/meta/0866FF" },
+    { name: "WhatsApp", src: "https://cdn.simpleicons.org/whatsapp/25D366" },
+    { name: "Taboola", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/taboola.webp?updatedAt=1779005081811" },
+    { name: "LinkedIn", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/linkedin.png?updatedAt=1779005081867" },
+    { name: "SEMrush", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/semrush.webp?updatedAt=1779005081842" },
+    { name: "Wati", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/wati.jpg?updatedAt=1779005081799" },
+    { name: "Interakt", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/interakt.png?updatedAt=1779005082154" },
+    { name: "Zoho", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/zoho.webp?updatedAt=1779005081981" },
+    { name: "Mailchimp", src: "https://cdn.simpleicons.org/mailchimp/FFE01B" },
+    { name: "Flipkart", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/flipkart.png?updatedAt=1779005081472" },
+    { name: "Google Analytics", src: "https://cdn.simpleicons.org/googleanalytics/E37400" },
+    { name: "Jungle Scout", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/JUNGLE-SCOUT.webp?updatedAt=1779005081826" },
+    { name: "Microsoft", src: "https://ik.imagekit.io/j0xzq9pns/marketly/logo/microsoft-logo.png?updatedAt=1779005081969" },
+    { name: "Pinterest", src: "https://cdn.simpleicons.org/pinterest/BD081C" },
+  ];
+
+  const serviceColumns = [
+    {
+      title: "Digital marketing",
+      Icon: Search,
+      items: ["SEO", "Social media marketing", "Content marketing", "Online reputation", "Brand positioning"],
+    },
+    {
+      title: "Performance marketing",
+      Icon: MousePointerClick,
+      items: ["Google Ads", "Meta Ads", "Retargeting", "Landing page CRO", "Conversion tracking"],
+    },
+    {
+      title: "Website & commerce",
+      Icon: Globe2,
+      items: ["Business websites", "E-commerce stores", "CRM integrations", "Mobile app UI", "Analytics dashboards"],
+    },
+  ];
+
+  const deckCards = [
+    {
+      Icon: Play,
+      title: "KSPL powered by SKSCA 2024",
+      text: "A dedicated feature area for campaign videos, partner credibility and launch storytelling.",
+      stat: "Video",
+    },
+    {
+      Icon: LayoutDashboard,
+      title: "Website systems and launch stories",
+      text: "A guided story layer for websites, growth systems, lead magnets and product builds.",
+      stat: "05 sites",
+    },
+    {
+      Icon: Smartphone,
+      title: "Presentation-style scrolling",
+      text: "Horizontal snap cards give the page the clean, deck-like movement the client liked.",
+      stat: "Scroll",
+    },
+  ];
+
+  const ksplVideos = [
+    "https://ik.imagekit.io/j0xzq9pns/marketly/WhatsApp%20Video%202026-05-11%20at%207.38.01%20PM.mp4",
+    "https://ik.imagekit.io/j0xzq9pns/marketly/WhatsApp%20Video%202026-05-11%20at%207.38.02%20PM.mp4",
+    "https://ik.imagekit.io/j0xzq9pns/marketly/WhatsApp%20Video%202026-05-11%20at%207.38.00%20PM.mp4",
+    "https://ik.imagekit.io/j0xzq9pns/marketly/WhatsApp%20Video%202026-05-11%20at%207.38.00%20PM%20(1).mp4",
+    "https://ik.imagekit.io/j0xzq9pns/marketly/WhatsApp%20Video%202026-05-11%20at%207.37.59%20PM%20(1).mp4",
+    "https://ik.imagekit.io/j0xzq9pns/marketly/WhatsApp%20Video%202026-05-11%20at%207.38.01%20PM%20(1).mp4",
+    "https://ik.imagekit.io/j0xzq9pns/marketly/WhatsApp%20Video%202026-05-11%20at%207.38.00%20PM%20(2).mp4",
+    "https://ik.imagekit.io/j0xzq9pns/marketly/WhatsApp%20Video%202026-05-11%20at%207.38.01%20PM%20(2).mp4",
+    "https://ik.imagekit.io/j0xzq9pns/marketly/WhatsApp%20Video%202026-05-11%20at%207.37.59%20PM.mp4",
+  ];
+  const [activeVideoIndex, setActiveVideoIndex] = useState(0);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const [videoMuted, setVideoMuted] = useState(true);
+  const activeVideo = ksplVideos[activeVideoIndex];
+  const featuredVideoRef = useRef(null);
+
+  useEffect(() => {
+    if (!featuredVideoRef.current) return;
+    featuredVideoRef.current.pause();
+    featuredVideoRef.current.load();
+    setVideoPlaying(false);
+  }, [activeVideoIndex]);
+
+  const toggleFeaturedVideo = async () => {
+    const video = featuredVideoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      await video.play();
+      setVideoPlaying(true);
+    } else {
+      video.pause();
+      setVideoPlaying(false);
+    }
+  };
+
+  const toggleFeaturedAudio = () => {
+    setVideoMuted((current) => !current);
+  };
+
+  return (
+    <section className="bg-white border-y border-zinc-200" data-testid="home-growth-proof-deck">
+      <div className="py-20 md:py-28 bg-zinc-50">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10">
+          <div className="space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6 }}
+              className="bg-white border border-zinc-200 rounded-sm overflow-hidden shadow-[0_22px_60px_-40px_rgba(15,18,18,0.35)]"
+            >
+              <div className="grid lg:grid-cols-12 gap-px bg-zinc-200">
+                <div className="lg:col-span-4 bg-white p-7 md:p-9 flex flex-col justify-between">
+                  <div>
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C87A50]">Featured campaign videos</div>
+                    <h2 className="mt-3 text-3xl md:text-[44px] font-extrabold leading-tight text-[#0F1212]">
+                      KSPL powered by KSSCA 2024
+                    </h2>
+                    <p className="mt-5 text-zinc-600 leading-relaxed">
+                      Marketly featured as the marketing partner for the KSPL campaign powered by KSSCA 2024.
+                    </p>
+                  </div>
+                  <div className="mt-8 grid gap-3">
+                    {[
+                      { k: "Marketing Partner", v: "Campaign strategy, creative direction and launch communication." },
+                      { k: "Powered by KSSCA", v: "A focused 2024 sports campaign with video-led storytelling." },
+                      { k: "Campaign Reels", v: "Short-form video assets arranged for quick viewing and selection." },
+                    ].map((item) => (
+                      <div key={item.k} className="rounded-sm border border-zinc-200 bg-zinc-50 p-4">
+                        <div className="text-sm font-extrabold text-[#134E35]">{item.k}</div>
+                        <div className="mt-2 text-xs leading-relaxed text-zinc-600">{item.v}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="lg:col-span-8 bg-[#0F1212] text-white p-4 md:p-6 relative overflow-hidden">
+                  <div className="absolute inset-0 opacity-[0.07]" style={{backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "18px 18px"}} />
+                  <div className="relative">
+                    <div className="relative aspect-video overflow-hidden rounded-sm border border-white/10 bg-black shadow-[0_20px_50px_-28px_rgba(0,0,0,0.9)]">
+                      <video
+                        ref={featuredVideoRef}
+                        src={activeVideo}
+                        className="h-full w-full object-cover"
+                        muted={videoMuted}
+                        onEnded={() => setVideoPlaying(false)}
+                        onPause={() => setVideoPlaying(false)}
+                        onPlay={() => setVideoPlaying(true)}
+                        playsInline
+                        preload="metadata"
+                      />
+                      <div className="absolute inset-x-0 top-0 p-4 bg-gradient-to-b from-black/65 to-transparent">
+                        <div className="inline-flex items-center gap-2 rounded-full bg-white/12 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white backdrop-blur">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#C87A50]" /> Featured video {activeVideoIndex + 1}
+                        </div>
+                      </div>
+                      {!videoPlaying && (
+                        <button
+                          type="button"
+                          onClick={toggleFeaturedVideo}
+                          className="absolute inset-0 grid place-items-center bg-black/20 hover:bg-black/10 transition-colors"
+                          aria-label="Play featured KSPL video"
+                        >
+                          <span className="h-16 w-16 rounded-full bg-[#C87A50] text-white grid place-items-center shadow-[0_18px_35px_-18px_rgba(0,0,0,0.8)]">
+                            <Play className="h-6 w-6 fill-white ml-0.5" />
+                          </span>
+                        </button>
+                      )}
+                      <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/75 to-transparent">
+                        <div className="flex items-center justify-between gap-3">
+                          <button
+                            type="button"
+                            onClick={toggleFeaturedVideo}
+                            className="inline-flex items-center gap-2 rounded-full bg-white text-[#0F1212] px-4 py-2 text-xs font-bold hover:bg-[#F4F8F1] transition-colors"
+                          >
+                            {videoPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 fill-current" />}
+                            {videoPlaying ? "Pause" : "Play"}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={toggleFeaturedAudio}
+                            className="h-9 w-9 rounded-full border border-white/20 bg-white/10 grid place-items-center text-white backdrop-blur hover:bg-white/20 transition-colors"
+                            aria-label={videoMuted ? "Turn sound on" : "Turn sound off"}
+                          >
+                            {videoMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+                      {ksplVideos.map((src, index) => (
+                        <button
+                          key={src}
+                          type="button"
+                          onClick={() => setActiveVideoIndex(index)}
+                          className={`rounded-sm border p-1 text-left transition-all ${
+                            activeVideoIndex === index
+                              ? "border-[#C87A50] bg-[#C87A50]/15"
+                              : "border-white/10 bg-white/[0.04] hover:border-white/30"
+                          }`}
+                        >
+                          <div className="relative aspect-video overflow-hidden rounded-sm bg-black">
+                            <video
+                              src={src}
+                              className="h-full w-full object-cover"
+                              muted
+                              playsInline
+                              preload="metadata"
+                            />
+                            <div className="absolute inset-0 grid place-items-center bg-black/20">
+                              <span className="h-8 w-8 rounded-full bg-white/90 text-[#0F1212] grid place-items-center">
+                                <Play className="h-3.5 w-3.5 fill-current ml-0.5" />
+                              </span>
+                            </div>
+                          </div>
+                          <div className="mt-1.5 text-center text-[10px] font-semibold text-white/60">Video {index + 1}</div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="bg-white border border-zinc-200 rounded-sm p-6 md:p-10"
+            >
+              <div className="text-center mb-7">
+                <h3 className="text-xl md:text-2xl font-extrabold text-[#0F1212]">
+                  Platforms we connect across campaigns.
+                </h3>
+              </div>
+              <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+                {automationLogos.map((logo) => (
+                  <div
+                    key={logo.name}
+                    className="h-14 w-[150px] md:w-[168px] rounded-sm bg-zinc-50 px-4 flex items-center justify-center hover:bg-white hover:shadow-[0_12px_28px_-24px_rgba(15,18,18,0.45)] transition-all"
+                  >
+                    <img
+                      src={logo.src}
+                      alt={`${logo.name} logo`}
+                      loading="lazy"
+                      className="max-h-10 max-w-[138px] object-contain"
+                    />
+                    <span className="sr-only">{logo.name}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="grid sm:grid-cols-3 gap-4"
+            >
+              {deckCards.map(({ Icon, title, text, stat }) => (
+                <div key={title} className="bg-white border border-zinc-200 rounded-sm p-5 min-h-[220px]">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="h-10 w-10 rounded-sm bg-[#134E35]/10 grid place-items-center">
+                      <Icon className="h-4 w-4 text-[#134E35]" />
+                    </div>
+                    <div className="text-[10px] uppercase tracking-[0.14em] font-bold text-[#C87A50]">{stat}</div>
+                  </div>
+                  <h4 className="mt-6 text-lg font-bold leading-tight text-[#0F1212]">{title}</h4>
+                  <p className="mt-3 text-sm text-zinc-600 leading-relaxed">{text}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      <div className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5 md:px-10">
+          <div className="rounded-sm border border-zinc-200 p-5 md:p-7">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-zinc-200 border border-zinc-200">
+              {reviewPlatforms.map((platform) => (
+                <div key={platform.name} className="bg-white p-4 md:p-5 text-center">
+                  <div className={`font-extrabold text-lg ${platform.tone}`}>{platform.name}</div>
+                  <div className="mt-2 flex justify-center gap-0.5 text-[#F5A623]">
+                    {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current" />)}
+                  </div>
+                  <div className="mt-1 text-[11px] font-semibold text-zinc-500">{platform.score}/5 · {platform.sub}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 text-center text-sm text-zinc-500">
+              Flexible, priority-driven results with ROI-focused digital marketing services.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="py-20 md:py-28 bg-[#0F1212] text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)", backgroundSize: "48px 48px"}} />
+        <div className="max-w-[1200px] mx-auto px-5 md:px-10 relative">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            <div className="lg:col-span-5">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C87A50] mb-4">Result-driven services</div>
+              <h2 className="text-[32px] md:text-[48px] font-extrabold leading-tight">
+                Generate qualified leads and drive sales.
+              </h2>
+              <p className="mt-5 text-white/65 leading-relaxed">
+                Full-stack digital marketing services built to improve visibility, capture intent and convert traffic into measurable pipeline.
+              </p>
+            </div>
+            <div className="lg:col-span-7 grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+              {serviceColumns.map(({ Icon, title, items }) => (
+                <div key={title} className="bg-[#101414] p-7">
+                  <div className="h-11 w-11 rounded-sm bg-white/5 border border-white/10 grid place-items-center mb-6">
+                    <Icon className="h-5 w-5 text-[#C87A50]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white leading-tight">{title}</h3>
+                  <ul className="mt-5 space-y-3">
+                    {items.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-sm text-white/65">
+                        <CheckCircle2 className="h-4 w-4 text-[#C87A50] mt-0.5 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 overflow-x-auto snap-x snap-mandatory pb-2 [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="flex gap-4 min-w-max">
+              {deckCards.map(({ Icon, title, text, stat }) => (
+                <div key={title} className="snap-start w-[78vw] sm:w-[420px] rounded-sm border border-white/10 bg-white/[0.035] p-6">
+                  <div className="flex items-center justify-between">
+                    <Icon className="h-5 w-5 text-[#C87A50]" />
+                    <span className="text-[10px] uppercase tracking-[0.16em] font-bold text-white/40">{stat}</span>
+                  </div>
+                  <h3 className="mt-8 text-2xl font-extrabold leading-tight">{title}</h3>
+                  <p className="mt-4 text-sm text-white/60 leading-relaxed">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 /* ========================= AUDIT CTA (single inline lead magnet) ========================= */
 function AuditCTA() {
   return (

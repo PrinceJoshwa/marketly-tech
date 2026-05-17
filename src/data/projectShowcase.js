@@ -24,7 +24,7 @@ export const WEBSITE_PROJECTS = [
     url: "https://www.designhive.in",
     leadMagnet: "Quote generator — instant interior-design quotes by room type & carpet area",
     stack: ["Next.js", "Tailwind", "Framer Motion"],
-    metric: "₹900/sqft onwards · ISO certified",
+    metric: "₹900/sqft onwards · modular interiors",
     thumb: "https://image.thum.io/get/width/1600/crop/1000/noanimate/https://www.designhive.in/",
     fallback: "https://images.unsplash.com/photo-1615873968403-89e068629265?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200",
     year: "2025",

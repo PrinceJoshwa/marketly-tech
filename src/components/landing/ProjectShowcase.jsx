@@ -19,12 +19,12 @@ export default function ProjectShowcase({ showIntro = true, limit }) {
                 <Code2 className="h-3.5 w-3.5" /> Websites we designed &amp; built
               </div>
               <h2 className="text-[34px] sm:text-[42px] lg:text-[52px] font-extrabold leading-[1.05] tracking-[-0.02em] text-[#0F1212]">
-                Five live sites. Five growth systems.
+                Websites we designed and built.
               </h2>
             </div>
             <div className="md:col-span-5 md:pl-8">
               <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                Every site below is a real, running product — shipped by our team, each with a lead-magnet engineered to convert. Click any card to visit.
+                Live website builds across real estate, interiors, SaaS, automobile, water treatment, e-commerce, edu-tech, and higher education.
               </p>
             </div>
           </div>

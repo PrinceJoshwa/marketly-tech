@@ -67,9 +67,9 @@ export const SERVICES = [
 ];
 
 export const CLIENT_LOGOS = [
-  "Sunrise Designhive", "Motobay", "Craftroots", "Arina & Co.",
-  "RRL Builders & Developers", "Kaya Living", "Harmony Realty", "Urbanly",
-  "Nova Autos", "Terrace Retail", "Maple Interiors", "Cove Realty",
+  "Real Estate", "Interior Design", "IT & SaaS Brand", "Automobile Industry",
+  "Water Treatment Plant", "Edu-tech", "Higher Education", "E-commerce",
+  "Retail", "Healthcare", "Grocery & FMCG", "Local Services",
 ];
 
 export const TESTIMONIALS = [
@@ -109,10 +109,9 @@ export const FAQS = [
 ];
 
 export const AWARDS = [
-  { k: "AdAsia India 2024", v: "Marketing Innovation — Best Performance Agency" },
+  { k: "AdAsia India 2025", v: "Global Iconic Excellence Award" },
   { k: "Google Ads Partner", v: "Search + YouTube certified" },
   { k: "Meta Business Partner", v: "Performance tier" },
-  { k: "ISO 27001", v: "Data & privacy compliant" },
 ];
 
 export const HERO_STATS = [

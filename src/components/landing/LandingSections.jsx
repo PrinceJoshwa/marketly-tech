@@ -22,8 +22,8 @@ export function PartnerBar() {
   const items = [
     { label: "Google Ads", sub: "Certified Partner · 2024", icon: "G" },
     { label: "Meta Business", sub: "Partner · Performance", icon: "M" },
-    { label: "AdAsia India", sub: "Marketing Innovation 2024", icon: "★" },
-    { label: "ISO 27001", sub: "Data & Privacy", icon: "✓" },
+    { label: "AdAsia India", sub: "Marketing Innovation 2025", icon: "★" },
+    { label: "AdAsia India", sub: "Global Iconic Excellence Award 2025", icon: "★" }
   ];
   return (
     <section className="bg-ink text-white py-16 md:py-20 border-y border-ink/80" data-testid="partner-bar">
@@ -182,7 +182,6 @@ export function AwardSpotlight() {
             {[
               { k: "Meta Business Partner", v: "Performance tier" },
               { k: "Google Ads Partner", v: "Search + YouTube" },
-              { k: "ISO 27001 Ready", v: "Data handling" },
             ].map((b) => (
               <div key={b.k} className="bg-ink p-5">
                 <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-copper">{b.k}</div>
