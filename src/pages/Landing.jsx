@@ -27,7 +27,7 @@ export default function Home() {
       <ServicesPreview />
       <ProductSystems />
       <FeaturedWork />
-      <ProjectShowcase limit={4} />
+      <ProjectShowcase limit={8} />
       <GrowthProofDeck />
       <AuditCTA />
       <WhyUs />
@@ -297,9 +297,9 @@ Built by a Founder who prioritizes Performance over Promises.
             </p>
             <div className="mt-10 grid sm:grid-cols-3 gap-4">
               {[
-                { k: "2013", v: "Agency founded" },
-                { k: "2024", v: "Award winner" },
-                { k: "50+", v: "Brands grown" },
+                { k: "2024", v: "Agency founded" },
+                { k: "15+", v: "Brands grown" },
+                { k: "2025", v: "Award winner" },
               ].map((s, i) => (
                 <motion.div
                   key={s.v}
