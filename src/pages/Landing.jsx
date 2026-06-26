@@ -1547,9 +1547,9 @@ function Hero() {
               data-testid="hero-stats"
             >
               {[
-                { v: 50, suffix: "+", k: "Brands served" },
-                { v: 94, suffix: "%", k: "Client retention" },
-                { v: 12, suffix: " yrs", k: "In business" },
+                { v: 15, suffix: "+", k: "Brands served" },
+                { v: 98, suffix: "%", k: "Client retention" },
+                { v: 5, suffix: "years", k: "In business" },
               ].map((s) => (
                 <div key={s.k} className="border-l border-white/15 pl-4">
                   <div className="text-3xl md:text-[32px] font-bold text-white leading-none">
@@ -1565,7 +1565,7 @@ function Hero() {
               transition={{ duration: 0.5, delay: 0.65 }}
               className="mt-5 text-center sm:text-left text-sm md:text-base font-semibold text-white/58"
             >
-              15+ brands | 98% client retention | 5 years | Rs. 10+ monthly ad spends
+              15+ brands | 98% client retention | Founded in 2020 | Rs. 10L+ monthly ad spends
             </motion.div>
           </motion.div>
 
@@ -1609,7 +1609,7 @@ function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#070812]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-2.5 left-3 right-3 text-white">
-                  <div className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#FF6A3D]">Award winner · March 2024</div>
+                  <div className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#FF6A3D]">Award winner · March 2025</div>
                   <div className="text-[13px] font-bold leading-tight mt-0.5">Ramya Prasanna · Founder</div>
                 </div>
               </motion.div>
@@ -1632,7 +1632,7 @@ function Hero() {
                   <CountUp value={300} suffix="%" className="text-3xl font-extrabold text-[#FF6A3D] leading-none" />
                   <span className="text-[11px] text-white/45 font-semibold">ROI</span>
                 </div>
-                <div className="text-xs text-white/58 mt-2 leading-snug">RRL Builders & Developers · qualified site-visits, 90 days</div>
+                <div className="text-xs text-white/58 mt-2 leading-snug">RRL Builders & Developers · Assisted Real estate brand with qualified site visits</div>
               </motion.div>
             </div>
           </motion.div>
@@ -1668,7 +1668,7 @@ function FounderAward() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="absolute -bottom-6 -right-2 md:-right-6 bg-white text-[#070812] px-5 py-4 rounded-sm border border-zinc-200 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.1)] max-w-xs"
             >
-              <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#FF6A3D]">Stage photo · 10 March 2024</div>
+              <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#FF6A3D]">10 March 2025</div>
               <div className="text-base font-bold leading-tight mt-1">Women Achievements Summit</div>
               <div className="text-xs text-zinc-500 mt-0.5">Founder of Marketly — award recipient</div>
             </motion.div>

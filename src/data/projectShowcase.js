@@ -141,11 +141,61 @@ export const CREATIVE_PORTFOLIO = {
     { cat: "ads", title: "PMax creative library", client: "Craftroots", img: "https://images.unsplash.com/photo-1753161029114-857c9f494ccd?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=900" },
     { cat: "ads", title: "Launch-week Meta set", client: "Arina & Co.", img: "https://images.unsplash.com/photo-1690489965043-ec15758cce71?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=900" },
     { cat: "ads", title: "Lead-gen static suite", client: "BIMSR", img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=900" },
+// {
+//   cat: "ads",
+//   title: "NC216 Roadside Billboard Campaign",
+//   client: "RRL Builders & Developers",
+//   img: "https://ik.imagekit.io/j0xzq9pns/marketly/Marketlu.png?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200",
+// },
+// {
+//   cat: "ads",
+//   title: "NC216 Retail Frontage Banner",
+//   client: "RRL Builders & Developers",
+//   img: "https://ik.imagekit.io/j0xzq9pns/marketly/Marketlu%20(1).png?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200",
+// },
+{
+  cat: "ads",
+  title: "NC216 Digital Outdoor Creative",
+  client: "RRL Builders & Developers",
+  img: "https://ik.imagekit.io/j0xzq9pns/marketly/Marketlu%20(2).png?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200",
+},
+{
+  cat: "ads",
+  title: "NC216 Site Hoarding Design",
+  client: "RRL Builders & Developers",
+  img: "https://ik.imagekit.io/j0xzq9pns/marketly/Marketlu%20(3).png?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200",
+},
     // Print & OOH
     { cat: "print", title: "Outer Ring Road hoarding — 40ft", client: "RRL Builders & Developers", img: "https://images.unsplash.com/photo-1572177812156-58036aae439c?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200", span: "md:col-span-2" },
     { cat: "print", title: "Metro station branding — 12 stations", client: "Motobay", img: "https://images.unsplash.com/photo-1519817650390-64a93db51149?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=900" },
     { cat: "print", title: "Diwali newspaper spread", client: "Craftroots", img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200" },
     { cat: "print", title: "Storefront window — 3 stores", client: "Arina & Co.", img: "https://images.unsplash.com/photo-1555421689-491a97ff2040?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=900" },
+    {
+  cat: "print",
+  title: "NC216 Roadside Billboard Campaign",
+  client: "RRL Builders & Developers",
+  img: "https://ik.imagekit.io/j0xzq9pns/marketly/Marketlu%20(1).png?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200",
+
+},
+{
+  cat: "print",
+  title: "NC216 Retail Frontage Banner",
+  client: "RRL Builders & Developers",
+  img: "https://ik.imagekit.io/j0xzq9pns/marketly/Marketlu.png?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200",
+
+},
+// {
+//   cat: "print",
+//   title: "NC216 Digital Outdoor Creative",
+//   client: "RRL Builders & Developers",
+//   img: "https://ik.imagekit.io/j0xzq9pns/marketly/Marketlu%20(2).png?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200",
+// },
+// {
+//   cat: "print",
+//   title: "NC216 Site Hoarding Design",
+//   client: "RRL Builders & Developers",
+//   img: "https://ik.imagekit.io/j0xzq9pns/marketly/Marketlu%20(3).png?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200",
+// },
     // Motion / Video
     { cat: "motion", title: "Launch film — RRL Builders & Developers", client: "RRL Builders & Developers", img: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=1200", span: "md:col-span-2 md:row-span-2" },
     { cat: "motion", title: "Walkthrough animation — RRL Palacio", client: "RRL Builders", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85&w=900" },

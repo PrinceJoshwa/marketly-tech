@@ -186,7 +186,7 @@ export default function Contact() {
             <div className="mt-10 space-y-4">
               <ContactLine Icon={Mail} label="Email" value="ramya@marketly.tech" href="mailto:ramya@marketly.tech" />
               <ContactLine Icon={Phone} label="Phone" value="+91 96063 34692" href="tel:+919606334692" />
-              <ContactLine Icon={MapPin} label="Office" value="3rd floor, Indiranagar 100ft Rd, Bengaluru — 560 038" />
+              <ContactLine Icon={MapPin} label="Office" value="Sarjapur Road, Bengaluru — 560 038" />
             </div>
           </div>
 

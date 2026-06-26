@@ -430,7 +430,7 @@ function PublicFooter() {
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-zinc-500" />
-                <span>3rd floor, Indiranagar 100ft Rd,<br />Bengaluru — 560 038</span>
+                <span>Sarjapur Road,<br />Bengaluru — 560 035</span>
               </li>
             </ul>
           </div>

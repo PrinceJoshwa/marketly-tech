@@ -50,7 +50,7 @@ export default function Privacy() {
             <p>We may update this policy from time to time. When we do, we'll update the "Last updated" date above. Material changes will be announced on this page.</p>
 
             <H>9. Contact</H>
-            <p>Questions? Write to <a href="mailto:privacy@marketly.tech" className="text-[#134E35] underline">privacy@marketly.tech</a> or by post to Marketly Technologies Pvt. Ltd., 3rd floor, Indiranagar 100ft Rd, Bengaluru — 560 038, India.</p>
+            <p>Questions? Write to <a href="mailto:privacy@marketly.tech" className="text-[#134E35] underline">privacy@marketly.tech</a> or by post to Marketly Technologies Pvt. Ltd., Sarjapur Road, Bengaluru — 560 038, India.</p>
           </div>
         </div>
       </section>
