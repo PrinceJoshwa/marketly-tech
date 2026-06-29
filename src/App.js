@@ -2,6 +2,7 @@ import "@/App.css";
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
+import { motion } from "motion/react";
 import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
 import Dashboard from "@/pages/Dashboard";
@@ -30,12 +31,51 @@ function ScrollToTop() {
   return null;
 }
 
-function App() {
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const nodes = document.querySelectorAll(
+        ".page-shell main > section, .page-shell main > div, .page-shell footer"
+      );
+
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach((node) => node.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -12% 0px", threshold: 0.08 }
+      );
+
+      nodes.forEach((node) => {
+        node.classList.add("reveal-on-scroll");
+        observer.observe(node);
+      });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.pathname]);
+
   return (
-    <div className="App min-h-screen">
-      <Toaster richColors position="top-right" />
-      <BrowserRouter>
-        <ScrollToTop />
+    <>
+      <ScrollToTop />
+      <motion.div
+        key={location.pathname}
+        className="page-shell"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.42, ease: [0.25, 1, 0.5, 1] }}
+      >
         <Routes>
           {/* Public marketing site */}
           <Route path="/" element={<Landing />} />
@@ -82,6 +122,17 @@ function App() {
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+      </motion.div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <div className="App min-h-screen">
+      <Toaster richColors position="top-right" />
+      <BrowserRouter>
+        <AnimatedRoutes />
       </BrowserRouter>
     </div>
   );
