@@ -3667,14 +3667,14 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <div id="websites"><ProjectShowcase /></div>
-      
+      <LogoSection />
       <AwardsSection /> 
       <IndustryExposureSection />
       <HoardingsSection />
       <PrintablesSection />
       <SocialAdsSection />
-      <LogoSection />
+      <div id="websites"><ProjectShowcase /></div>
+
       {/* <CreativeGallery /> */}
     </PublicLayout>
   );
