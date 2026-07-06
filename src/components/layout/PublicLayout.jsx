@@ -361,14 +361,111 @@ function PublicHeader() {
   );
 }
 
+// function PublicFooter() {
+//   return (
+//     <footer className="bg-[#0F1212] text-zinc-400" data-testid="public-footer">
+//       <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-16">
+//         <div className="grid md:grid-cols-12 gap-10">
+//           <div className="md:col-span-4">
+            
+//             {/* Updated Footer Logo Section */}
+//             <div className="flex items-center">
+//               <img 
+//                 src={MARKETLY_LOGO} 
+//                 alt="Marketly logo" 
+//                 className="h-14 md:h-16 w-auto object-contain brightness-0 invert" 
+//               />
+//             </div>
+            
+//             <p className="mt-5 text-[15px] leading-relaxed max-w-sm">
+//               A Bengaluru-based agency building the growth stack for brands that want to compound — paid, organic, local, creative and offline.
+//             </p>
+//             <div className="mt-6 flex items-center gap-2.5">
+//               {[
+//                 { Icon: Instagram, href: "https://instagram.com/marketly.tech" },
+//                 { Icon: Linkedin, href: "https://linkedin.com" },
+//                 { Icon: Youtube, href: "https://youtube.com" },
+//                 { Icon: Twitter, href: "https://twitter.com" },
+//               ].map(({ Icon, href }) => (
+//                 <a key={href} href={href} className="h-9 w-9 grid place-items-center rounded-sm border border-zinc-800 hover:border-[#C87A50] hover:text-[#C87A50] transition-colors">
+//                   <Icon className="h-4 w-4" />
+//                 </a>
+//               ))}
+//             </div>
+//           </div>
+
+//           <div className="md:col-span-2">
+//             <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#C87A50] mb-4">Company</div>
+//             <ul className="space-y-2.5 text-sm">
+//               <li><Link to="/about" className="hover:text-white">About</Link></li>
+//               <li><Link to="/work" className="hover:text-white">Work</Link></li>
+//               <li><Link to="/portfolio" className="hover:text-white">Portfolio</Link></li>
+//               <li><Link to="/blog" className="hover:text-white">Blog</Link></li>
+//               <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+//             </ul>
+//           </div>
+
+//           <div className="md:col-span-2">
+//             <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#C87A50] mb-4">Services</div>
+//             <ul className="space-y-2.5 text-sm">
+//               <li><Link to="/services" className="hover:text-white">Performance</Link></li>
+//               <li><Link to="/services/seo" className="hover:text-white">SEO</Link></li>
+//               <li><Link to="/services" className="hover:text-white">GMB Local</Link></li>
+//               <li><Link to="/services" className="hover:text-white">Websites</Link></li>
+//               <li><Link to="/services" className="hover:text-white">Creative</Link></li>
+//               <li><Link to="/services" className="hover:text-white">Offline / OOH</Link></li>
+//             </ul>
+//           </div>
+
+//           <div className="md:col-span-2">
+//   <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#C87A50] mb-4">Legal</div>
+//   <ul className="space-y-2.5 text-sm">
+//     <li><Link to="/privacy" className="hover:text-white">Privacy Policy</Link></li>
+//     <li><Link to="/terms" className="hover:text-white">Terms & Conditions</Link></li>
+//   </ul>
+// </div>
+
+//           <div className="md:col-span-4">
+//             <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#C87A50] mb-4">Contact</div>
+//             <ul className="space-y-3 text-sm">
+//               <li className="flex items-start gap-2.5">
+//                 <Mail className="h-4 w-4 mt-0.5 shrink-0 text-zinc-500" />
+//                 <a href="mailto:ramya@marketly.tech" className="hover:text-white">ramya@marketly.tech</a>
+//               </li>
+//               <li className="flex items-start gap-2.5">
+//                 <Phone className="h-4 w-4 mt-0.5 shrink-0 text-zinc-500" />
+//                 <a href="tel:+919606334692" className="hover:text-white">+91 96063 34692</a>
+//               </li>
+//               <li className="flex items-start gap-2.5">
+//                 <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-zinc-500" />
+//                 <span>Sarjapur Road,<br />Bengaluru — 560 035</span>
+//               </li>
+//             </ul>
+//           </div>
+//         </div>
+
+//         <div className="mt-14 pt-6 border-t border-zinc-800 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-zinc-500">
+//           <span>© {new Date().getFullYear()} Marketly Technologies. All rights reserved.</span>
+//           <div className="flex gap-6">
+//             <Link to="/privacy" className="hover:text-white" data-testid="footer-privacy">Privacy Policy</Link>
+//             <Link to="/terms" className="hover:text-white" data-testid="footer-terms">Terms & Conditions</Link>
+//             <Link to="/admin" className="hover:text-white" data-testid="footer-admin-link">Client portal</Link>
+//           </div>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
 function PublicFooter() {
   return (
     <footer className="bg-[#0F1212] text-zinc-400" data-testid="public-footer">
       <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-16">
-        <div className="grid md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
-            
-            {/* Updated Footer Logo Section */}
+        
+        {/* Main Grid: Total = 12 columns */}
+        <div className="grid md:grid-cols-12 gap-8">
+          
+          {/* 1. Logo & About (3 cols) */}
+          <div className="md:col-span-3">
             <div className="flex items-center">
               <img 
                 src={MARKETLY_LOGO} 
@@ -376,8 +473,7 @@ function PublicFooter() {
                 className="h-14 md:h-16 w-auto object-contain brightness-0 invert" 
               />
             </div>
-            
-            <p className="mt-5 text-[15px] leading-relaxed max-w-sm">
+            <p className="mt-5 text-[15px] leading-relaxed">
               A Bengaluru-based agency building the growth stack for brands that want to compound — paid, organic, local, creative and offline.
             </p>
             <div className="mt-6 flex items-center gap-2.5">
@@ -394,6 +490,7 @@ function PublicFooter() {
             </div>
           </div>
 
+          {/* 2. Company (2 cols) */}
           <div className="md:col-span-2">
             <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#C87A50] mb-4">Company</div>
             <ul className="space-y-2.5 text-sm">
@@ -405,6 +502,7 @@ function PublicFooter() {
             </ul>
           </div>
 
+          {/* 3. Services (2 cols) */}
           <div className="md:col-span-2">
             <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#C87A50] mb-4">Services</div>
             <ul className="space-y-2.5 text-sm">
@@ -417,7 +515,18 @@ function PublicFooter() {
             </ul>
           </div>
 
-          <div className="md:col-span-4">
+          {/* 4. Legal (2 cols) */}
+          <div className="md:col-span-2">
+            <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#C87A50] mb-4">Legal</div>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link to="/privacy" className="hover:text-white">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-white">Terms & Conditions</Link></li>
+              <li><Link to="/admin" className="hover:text-white">Client Portal</Link></li>
+            </ul>
+          </div>
+
+          {/* 5. Contact (3 cols) */}
+          <div className="md:col-span-3">
             <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#C87A50] mb-4">Contact</div>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
@@ -436,13 +545,9 @@ function PublicFooter() {
           </div>
         </div>
 
-        <div className="mt-14 pt-6 border-t border-zinc-800 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-zinc-500">
+        {/* Bottom Copyright Row */}
+        <div className="mt-14 pt-6 border-t border-zinc-800 text-xs text-zinc-500">
           <span>© {new Date().getFullYear()} Marketly Technologies. All rights reserved.</span>
-          <div className="flex gap-6">
-            <Link to="/privacy" className="hover:text-white" data-testid="footer-privacy">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white" data-testid="footer-terms">Terms & Conditions</Link>
-            <Link to="/admin" className="hover:text-white" data-testid="footer-admin-link">Client portal</Link>
-          </div>
         </div>
       </div>
     </footer>

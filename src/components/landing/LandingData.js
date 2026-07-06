@@ -102,8 +102,8 @@ export const FAQS = [
     a: "Yes, extensively — for creative iteration, keyword research, competitor analysis, and reporting. But every strategy decision is made by a human senior strategist. AI doesn't buy media on its own in our shop." },
   { q: "Are you really a Meta + Google Ads partner?",
     a: "Yes — certified partner on both platforms, plus AdAsia India's Marketing Innovation Award 2024. Happy to share our certificates on request." },
-  { q: "What does a typical engagement cost?",
-    a: "Retainers start at ₹75k/month for SEO-only and ₹1.5L/month for full-stack performance. Custom scope on project builds (websites, ERP, custom products)." },
+  // { q: "What does a typical engagement cost?",
+  //   a: "Retainers start at ₹75k/month for SEO-only and ₹1.5L/month for full-stack performance. Custom scope on project builds (websites, ERP, custom products)." },
   { q: "Can we start with just the audit?",
     a: "Absolutely — run the free audit above, then book a 30-min call. No pressure to commit to anything." },
 ];

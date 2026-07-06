@@ -1424,7 +1424,7 @@ import { PartnerBadgeRow } from "@/components/landing/PartnerBadges";
 import CountUp from "@/components/landing/CountUp";
 import ScrollProgress from "@/components/landing/ScrollProgress";
 
-const AWARD_PHOTO = "https://customer-assets.emergentagent.com/job_rank-intel-dash/artifacts/2afpvxbt_AJP03487.JPG.jpeg";
+const AWARD_PHOTO = "https://ik.imagekit.io/j0xzq9pns/marktly-image/WhatsApp%20Image%202026-07-06%20at%2011.34.03%20AM.jpeg";
 
 export default function Home() {
   return (

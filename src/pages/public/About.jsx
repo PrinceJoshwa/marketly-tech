@@ -297,7 +297,8 @@ export default function About() {
             >
               <div className="relative rounded-sm overflow-hidden aspect-[4/5] bg-[#0A0D14] border border-white/10 shadow-[0_40px_80px_-20px_rgba(0,0,0,1)] z-10 group">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_rank-intel-dash/artifacts/2afpvxbt_AJP03487.JPG.jpeg" 
+                  // src="https://customer-assets.emergentagent.com/job_rank-intel-dash/artifacts/2afpvxbt_AJP03487.JPG.jpeg" 
+                  src="https://ik.imagekit.io/j0xzq9pns/marktly-image/WhatsApp%20Image%202026-07-06%20at%2011.38.51%20AM.jpeg" 
                   alt="Ramya Prasanna receiving the Marketing Innovation Award" 
                   className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" 
                 />

@@ -1031,7 +1031,7 @@ export const WEBSITE_PROJECTS = [
     slug: "d-grocers",
     client: "D Grocer's",
     industry: "E-commerce · Grocery",
-    hero: "Grocery store e-commerce site with category browsing and repeat-order flows",
+    hero: "Ecommerce setup with custom UI and Shopify integration with dedicated CMS to control website via non-developers",
     url: "https://dgrocer.in/",
     leadMagnet: "Weekly offers catalogue with WhatsApp enquiry and cart handoff",
     stack: ["React", "Commerce", "WhatsApp"],

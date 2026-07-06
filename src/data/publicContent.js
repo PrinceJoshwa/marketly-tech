@@ -105,7 +105,7 @@ export const FAQS = [
   { q: "Do you lock us into long contracts?", a: "No. 30-day notice, no hidden exit fees. We earn the retainer every month." },
   { q: "Who owns the ad accounts, content, and data?", a: "You do. Always. We operate inside your accounts. When we part ways, you keep everything." },
   { q: "Are you really a Meta + Google Ads partner?", a: "Yes — certified partner on both platforms, plus AdAsia India's Marketing Innovation Award 2024." },
-  { q: "What does a typical engagement cost?", a: "Retainers start at ₹75k/month for SEO-only and ₹1.5L/month for full-stack performance. Custom scope on project builds." },
+  // { q: "What does a typical engagement cost?", a: "Retainers start at ₹75k/month for SEO-only and ₹1.5L/month for full-stack performance. Custom scope on project builds." },
 ];
 
 export const AWARDS = [
