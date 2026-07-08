@@ -3341,7 +3341,7 @@ function HoardingsSection() {
           <CampaignGrid items={nc216} title="NC216 EOI Campaign" client="RRL Builders & Developers" />
           <CampaignGrid items={rrlOther} title="Portfolio & Event" client="RRL Builders & Developers" />
           <CampaignGrid items={palm} title="Palm Altezze" client="RRL Builders & Developers" />
-          <CampaignGrid items={rakepto} title="Brand Signage" client="Rakepto" />
+          {/* <CampaignGrid items={rakepto} title="Brand Signage" client="Rakepto" /> */}
         </div>
       </div>
     </section>
@@ -3668,11 +3668,11 @@ export default function Portfolio() {
       </section>
 
       <LogoSection />
-      <AwardsSection /> 
+      {/* <AwardsSection />  */}
       <IndustryExposureSection />
       <HoardingsSection />
       <PrintablesSection />
-      <SocialAdsSection />
+      {/* <SocialAdsSection /> */}
       <div id="websites"><ProjectShowcase /></div>
 
       {/* <CreativeGallery /> */}
