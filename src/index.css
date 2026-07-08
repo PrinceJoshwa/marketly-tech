@@ -86,3 +86,55 @@ code {
 
 /* Smooth cross-section scroll (landing only) */
 html { scroll-behavior: smooth; }
+
+@media (max-width: 639px) {
+  html,
+  body,
+  #root,
+  .App,
+  .page-shell {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .page-shell *,
+  .page-shell *::before,
+  .page-shell *::after {
+    min-width: 0;
+  }
+
+  .page-shell img,
+  .page-shell video,
+  .page-shell canvas,
+  .page-shell svg {
+    max-width: 100%;
+  }
+
+  .page-shell h1,
+  .page-shell h2,
+  .page-shell h3,
+  .page-shell p,
+  .page-shell a,
+  .page-shell button,
+  .page-shell span {
+    overflow-wrap: anywhere;
+  }
+
+  .page-shell a,
+  .page-shell button {
+    max-width: 100%;
+  }
+
+  .mobile-marquee-clip {
+    contain: paint;
+    overflow-x: clip;
+  }
+
+  .mobile-marquee-track {
+    will-change: transform;
+  }
+
+  .mobile-no-x-motion {
+    transform: translateX(0) !important;
+  }
+}
