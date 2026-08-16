@@ -3421,7 +3421,7 @@ function Hero() {
                   <CountUp value={300} suffix="%" className="text-2xl sm:text-3xl font-extrabold text-[#FF6A3D] leading-none" />
                   <span className="text-[10px] sm:text-[11px] text-white/45 font-semibold">ROI</span>
                 </div>
-                <div className="text-[11px] sm:text-xs text-white/58 mt-2 leading-snug">RRL Builders & Developers · Assisted Real estate brand with qualified site visits</div>
+                <div className="text-[11px] sm:text-xs text-white/58 mt-2 leading-snug">Assisted Real estate brand with qualified site visits</div>
               </motion.div>
             </div>
           </motion.div>
@@ -3654,7 +3654,7 @@ function TrustBar() {
           <div className="absolute inset-y-0 right-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#070812] to-transparent pointer-events-none" />
           <div className="flex gap-8 md:gap-12 animate-marquee whitespace-nowrap">
             {logos.map((name, i) => (
-              <span key={`${name}-${i}`} className="text-xl md:text-2xl font-semibold text-white/30 hover:text-[#FF6A3D] transition-colors shrink-0">
+              <span key={`${name}-${i}`} className="text-xl md:text-2xl font-semibold text-white hover:text-[#FF6A3D] transition-colors shrink-0">
                 {name}
               </span>
             ))}
@@ -3903,7 +3903,7 @@ function ProductSystems() {
     {
       Icon: Building2,
       title: "CRM tool for real estate",
-      text: "Lead capture, broker follow-ups, site visits, inventory and booking-stage visibility for real-estate teams.",
+      text: "Real estate pre sales CRM, Real estate post sales CRM, Lead capture, broker follow-ups, site visits, inventory and booking-stage visibility for real-estate teams.",
       meta: "Pipeline + CRM",
     },
     {

@@ -79,7 +79,7 @@ export function AdAsiaMarketingBadge({ className = "h-16" }) {
         </g>
       </svg>
       <div className="leading-tight">
-        <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-500">Recognition</div>
+        <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-500">Marketing innovation of the year</div>
         <div className="font-bold text-[#0F1212] text-[15px]">AdAsia Marketing Innovation</div>
       </div>
     </div>

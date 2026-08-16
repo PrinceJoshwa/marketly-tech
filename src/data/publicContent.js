@@ -69,7 +69,7 @@ export const SERVICES = [
 export const CLIENT_LOGOS = [
   "Real Estate", "Interior Design", "IT & SaaS Brand", "Automobile Industry",
   "Water Treatment Plant", "Edu-tech", "Higher Education", "E-commerce",
-  "Retail", "Healthcare", "Grocery & FMCG", "Local Services",
+  "Retail", "Healthcare", "Grocery & FMCG", "Local Services", "Fintech",
 ];
 
 export const TESTIMONIALS = [
