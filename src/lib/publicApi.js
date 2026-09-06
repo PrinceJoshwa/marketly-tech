@@ -1,8 +1,18 @@
 import axios from "axios";
 
-const BACKEND = process.env.REACT_APP_BACKEND_URL;
+const configuredBackend = process.env.REACT_APP_BACKEND_URL || "";
 const FORMSPREE_ENDPOINT = process.env.REACT_APP_FORMSPREE_ENDPOINT;
-const api = axios.create({ baseURL: `${BACKEND}/api` });
+
+const isBrowser = typeof window !== "undefined";
+const isLocalPage =
+  isBrowser && ["localhost", "127.0.0.1"].includes(window.location.hostname);
+const isLocalBackend = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(
+  configuredBackend
+);
+const backend =
+  configuredBackend && (isLocalPage || !isLocalBackend) ? configuredBackend : "";
+
+const api = axios.create({ baseURL: `${backend}/api` });
 
 const submitToFormspree = (payload) => {
   if (!FORMSPREE_ENDPOINT || FORMSPREE_ENDPOINT.includes("YOUR_FORM_ID")) {
