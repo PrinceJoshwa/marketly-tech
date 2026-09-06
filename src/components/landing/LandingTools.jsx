@@ -1985,7 +1985,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { toast } from "sonner";
-import { publicRoi, publicGmb } from "@/lib/publicApi";
+import { publicAudit, publicRoi, publicGmb } from "@/lib/publicApi";
 
 // ================= Free Website Audit =================
 export function AuditTool() {
@@ -2009,46 +2009,17 @@ export function AuditTool() {
 
     setBusy(true);
     try {
-      // Capture API validates either key depending on the deployed handler path.
-      const payload = { 
-        domain: formattedUrl, 
-        name: brandName.trim(), 
-        brand_name: brandName.trim(), 
-        phone: phone.trim(), 
+      const payload = {
+        url: formattedUrl,
+        name: brandName.trim(),
+        company: brandName.trim(),
+        phone: phone.trim(),
         email: email.trim(),
-        source: "seo.marketly.tech"
       };
       
       console.log("Sending payload:", payload);
 
-      const response = await fetch("https://aierp.cloud/api/external/capture", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Backend Error Details:", errorData);
-        
-        let errMsg = "Validation failed.";
-        
-        if (errorData.detail && Array.isArray(errorData.detail)) {
-            const missingFields = errorData.detail.map(err => err.loc[err.loc.length - 1]).join(", ");
-            errMsg = `Missing required fields: ${missingFields}`;
-        } else if (errorData.detail && typeof errorData.detail === 'string') {
-            errMsg = errorData.detail;
-        } else if (errorData.message) {
-            errMsg = errorData.message;
-        }
-        
-        throw new Error(errMsg);
-      }
-
-      const r = await response.json();
+      const r = await publicAudit(payload);
       setResult(r);
       toast.success("Audit complete — full report emailed");
     } catch (e) {
