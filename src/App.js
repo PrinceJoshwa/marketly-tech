@@ -9,6 +9,7 @@ import Dashboard from "@/pages/Dashboard";
 import ClientDetail from "@/pages/ClientDetail";
 import Team from "@/pages/Team";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import PageSeo from "@/components/seo/PageSeo";
 
 // Public subpages
 import Work from "@/pages/public/Work";
@@ -132,6 +133,7 @@ function App() {
     <div className="App min-h-screen">
       <Toaster richColors position="top-right" />
       <BrowserRouter>
+        <PageSeo />
         <AnimatedRoutes />
       </BrowserRouter>
     </div>
