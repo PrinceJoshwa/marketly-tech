@@ -280,16 +280,16 @@ import { useState, useMemo } from "react";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import PublicLayout from "@/components/layout/PublicLayout";
-import { BLOG_POSTS } from "@/data/blogPosts";
-
-const CATEGORIES = ["All", "Performance Marketing", "Local SEO", "Creative / Meta Ads", "SEO / CRO", "Integrated Campaigns"];
+import { useBlogPosts } from "@/data/blogPosts";
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const { posts, loading, error } = useBlogPosts();
+  const categories = useMemo(() => ["All", ...new Set(posts.map((post) => post.category))], [posts]);
 
   const filteredPosts = useMemo(
-    () => activeCategory === "All" ? BLOG_POSTS : BLOG_POSTS.filter((p) => p.category === activeCategory),
-    [activeCategory]
+    () => activeCategory === "All" ? posts : posts.filter((p) => p.category === activeCategory),
+    [activeCategory, posts]
   );
   const [featured, ...rest] = filteredPosts;
 
@@ -302,10 +302,10 @@ export default function Blog() {
             Playbooks, frameworks, and field notes from the team.
           </h1>
           <p className="mt-5 sm:mt-6 text-base sm:text-lg text-white/70 max-w-2xl leading-relaxed">
-            No fluff pieces. No AI-rewrites of 2019 articles. Just the actual playbooks we run on accounts — written by the people running them.
+            Ideas, practical guides, and updates from Marketly.
           </p>
-          <div className="mt-8 flex flex-wrap gap-2 sm:gap-3">
-            {CATEGORIES.map((c) => (
+          {categories.length > 2 && <div className="mt-8 flex flex-wrap gap-2 sm:gap-3">
+            {categories.map((c) => (
               <button
                 key={c}
                 type="button"
@@ -316,7 +316,7 @@ export default function Blog() {
                 {c}
               </button>
             ))}
-          </div>
+          </div>}
         </div>
       </section>
 
@@ -326,7 +326,7 @@ export default function Blog() {
           <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <Link to={`/blog/${featured.slug}`} className="group flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 bg-zinc-50 rounded-sm overflow-hidden border border-zinc-200 hover:border-[#FF6A3D] hover:shadow-[0_16px_40px_-20px_rgba(255,106,61,0.2)] transition-all duration-400">
               <div className="w-full md:col-span-7 aspect-[4/3] sm:aspect-[16/10] md:aspect-auto overflow-hidden bg-zinc-200">
-                <img src={featured.cover} alt={featured.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                {featured.cover ? <img src={featured.cover} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" /> : <div className="h-full min-h-64 grid place-items-center bg-[#0A0D14] text-white font-bold text-2xl">Marketly Journal</div>}
               </div>
               <div className="w-full md:col-span-5 p-5 sm:p-6 md:py-8 md:pr-8 flex flex-col justify-center">
                 <div className="flex flex-wrap text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] text-[#FF6A3D]">
@@ -351,7 +351,9 @@ export default function Blog() {
       {/* Article grid */}
       <section className="py-12 md:py-20 bg-white" data-testid="blog-grid">
         <div className="max-w-[1400px] mx-auto px-5 md:px-10">
-          {rest.length === 0 && !featured && (
+          {loading && <p className="text-center text-zinc-500 py-12" role="status">Loading articles...</p>}
+          {error && <p className="text-center text-zinc-500 py-12" role="alert">Articles are temporarily unavailable. Please try again later.</p>}
+          {!loading && !error && rest.length === 0 && !featured && (
             <p className="text-center text-zinc-500 py-12">No articles in this category yet.</p>
           )}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
@@ -365,7 +367,7 @@ export default function Blog() {
               >
                 <Link to={`/blog/${b.slug}`} className="group block bg-zinc-50 rounded-sm overflow-hidden border border-zinc-200 hover:border-[#FF6A3D] hover:shadow-[0_12px_32px_-16px_rgba(255,106,61,0.15)] transition-all duration-300 h-full flex flex-col" data-testid={`blog-card-${b.slug}`}>
                   <div className="aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-zinc-200 shrink-0">
-                    <img src={b.cover} alt={b.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+                    {b.cover ? <img src={b.cover} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" /> : <div className="h-full grid place-items-center bg-[#0A0D14] text-white font-bold">Marketly Journal</div>}
                   </div>
                   <div className="p-5 sm:p-6 flex flex-col flex-grow">
                     <div className="flex flex-wrap items-center gap-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] text-[#FF6A3D]">

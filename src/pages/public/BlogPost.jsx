@@ -84,16 +84,23 @@
 //   );
 // }
 
+import { useMemo } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import PublicLayout from "@/components/layout/PublicLayout";
-import { getBlogPost, BLOG_POSTS } from "@/data/blogPosts";
+import { getBlogPost, sanitizeBlogContent, useBlogPost, useBlogPosts } from "@/data/blogPosts";
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const post = getBlogPost(slug);
+  const { post: wordpressPost, loading, error } = useBlogPost(slug);
+  const legacyPost = getBlogPost(slug);
+  const post = wordpressPost || legacyPost;
+  const { posts } = useBlogPosts();
+  const content = useMemo(() => wordpressPost ? sanitizeBlogContent(wordpressPost.content) : "", [wordpressPost]);
+  if (loading && !legacyPost) return <PublicLayout><div className="max-w-[860px] mx-auto px-5 md:px-8 py-24 text-zinc-500" role="status">Loading article...</div></PublicLayout>;
+  if (error && !legacyPost) return <PublicLayout><div className="max-w-[860px] mx-auto px-5 md:px-8 py-24"><h1 className="text-3xl font-bold text-[#0F1212]">Article unavailable</h1><p className="mt-4 text-zinc-600">Please try again later.</p><Link to="/blog" className="mt-6 inline-block text-[#134E35] font-semibold">Back to all articles</Link></div></PublicLayout>;
   if (!post) return <Navigate to="/blog" replace />;
-  const related = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 3);
+  const related = posts.filter((p) => p.slug !== slug).slice(0, 3);
 
   return (
     <PublicLayout>
@@ -124,18 +131,23 @@ export default function BlogPost() {
           </div>
         </div>
 
-        <div className="max-w-[1100px] mx-auto px-5 md:px-8 mt-8 sm:mt-10 md:mt-14">
+        {post.cover && <div className="max-w-[1100px] mx-auto px-5 md:px-8 mt-8 sm:mt-10 md:mt-14">
           <div className="aspect-[4/3] sm:aspect-[16/9] rounded-sm overflow-hidden bg-zinc-100">
-            <img src={post.cover} alt={post.title} className="w-full h-full object-cover" />
+            <img src={post.cover} alt="" className="w-full h-full object-cover" />
           </div>
-        </div>
+        </div>}
 
-        <div className="max-w-[720px] mx-auto px-5 md:px-8 mt-10 md:mt-16 space-y-5 sm:space-y-6" data-testid="post-body">
-          {post.content.map((block, i) => {
-            if (block.type === "h2") return <h2 key={i} className="text-xl sm:text-2xl md:text-[28px] font-bold text-[#0F1212] leading-tight mt-8 sm:mt-10 tracking-[-0.01em]">{block.text}</h2>;
-            return <p key={i} className="text-[16px] sm:text-[17px] md:text-[18px] leading-[1.7] sm:leading-[1.75] text-zinc-700">{block.text}</p>;
-          })}
-        </div>
+        {wordpressPost ? (
+          <div className="wp-article max-w-[720px] mx-auto px-5 md:px-8 mt-10 md:mt-16" data-testid="post-body" dangerouslySetInnerHTML={{ __html: content }} />
+        ) : (
+          <div className="max-w-[720px] mx-auto px-5 md:px-8 mt-10 md:mt-16 space-y-5 sm:space-y-6" data-testid="post-body">
+            {post.content.map((block, i) => block.type === "h2" ? (
+              <h2 key={i} className="text-xl sm:text-2xl md:text-[28px] font-bold text-[#0F1212] leading-tight mt-8 sm:mt-10 tracking-[-0.01em]">{block.text}</h2>
+            ) : (
+              <p key={i} className="text-[16px] sm:text-[17px] md:text-[18px] leading-[1.7] sm:leading-[1.75] text-zinc-700">{block.text}</p>
+            ))}
+          </div>
+        )}
       </article>
 
       <section className="bg-zinc-50 border-t border-zinc-200 py-12 sm:py-16">
@@ -150,7 +162,7 @@ export default function BlogPost() {
             {related.map((b) => (
               <Link key={b.slug} to={`/blog/${b.slug}`} className="group flex flex-col bg-white rounded-sm overflow-hidden border border-zinc-200 hover:border-[#134E35] transition-colors">
                 <div className="aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-zinc-100 shrink-0">
-                  <img src={b.cover} alt={b.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+                  {b.cover ? <img src={b.cover} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" /> : <div className="h-full grid place-items-center bg-[#0A0D14] text-white font-bold">Marketly Journal</div>}
                 </div>
                 <div className="p-5 flex flex-col flex-grow">
                   <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] text-[#C87A50]">{b.category}</div>

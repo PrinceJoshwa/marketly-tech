@@ -39,9 +39,9 @@ export const pageSeo = {
     canonicalPath: "/services/seo",
   },
   "/blog": {
-    title: "Meta Ads Agency Bangalore | Facebook Advertising Experts",
+    title: "Marketly Journal | Digital Marketing Insights",
     description:
-      "Grow your business with a Meta Ads agency in Bangalore offering targeted Facebook and Instagram advertising campaigns designed to reach the right customers.",
+      "Read Marketly's latest guides and insights on digital marketing, SEO, paid ads, and business growth.",
     canonicalPath: "/blog",
   },
   "/about": {

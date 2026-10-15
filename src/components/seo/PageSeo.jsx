@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation, matchPath } from "react-router-dom";
-import { BLOG_POSTS, getBlogPost } from "@/data/blogPosts";
+import { getBlogPost, useBlogPost } from "@/data/blogPosts";
 import { CASE_STUDIES, getCaseStudy } from "@/data/caseStudies";
 import { absoluteUrl, pageSeo, seoDefaults } from "@/data/seoMetadata";
 
@@ -9,19 +9,25 @@ function normalizePath(pathname) {
   return pathname.replace(/\/+$/, "") || "/";
 }
 
-function getDynamicSeo(pathname) {
+function getDynamicSeo(pathname, blogPost) {
   const blogMatch = matchPath({ path: "/blog/:slug", end: true }, pathname);
   if (blogMatch?.params?.slug) {
-    const post = getBlogPost(blogMatch.params.slug);
-    if (post) {
+    if (blogPost && Array.isArray(blogPost.content)) {
       return {
-        title: `${post.title} | Marketly Tech`,
-        description: post.excerpt || seoDefaults.description,
-        canonicalPath: `/blog/${post.slug}`,
-        image: post.cover,
+        title: `${blogPost.title} | Marketly Tech`,
+        description: blogPost.excerpt || seoDefaults.description,
+        canonicalPath: `/blog/${blogPost.slug}`,
+        image: blogPost.cover,
         type: "article",
       };
     }
+    return {
+      title: blogPost ? `${blogPost.title} | Marketly Tech` : "Marketly Journal",
+      description: blogPost?.seoDescription || pageSeo["/blog"].description,
+      canonicalUrl: blogPost?.canonicalUrl || `https://blog.marketly.tech/${blogMatch.params.slug}/`,
+      image: blogPost?.cover,
+      type: "article",
+    };
   }
 
   const caseStudyMatch = matchPath({ path: "/work/:slug", end: true }, pathname);
@@ -41,10 +47,10 @@ function getDynamicSeo(pathname) {
   return null;
 }
 
-function getSeoForPath(pathname) {
+function getSeoForPath(pathname, blogPost) {
   const normalizedPath = normalizePath(pathname);
   return (
-    getDynamicSeo(normalizedPath) ||
+    getDynamicSeo(normalizedPath, blogPost) ||
     pageSeo[normalizedPath] ||
     {
       ...seoDefaults,
@@ -55,8 +61,10 @@ function getSeoForPath(pathname) {
 
 export default function PageSeo() {
   const location = useLocation();
-  const seo = getSeoForPath(location.pathname);
-  const canonicalUrl = absoluteUrl(seo.canonicalPath);
+  const blogMatch = matchPath({ path: "/blog/:slug", end: true }, normalizePath(location.pathname));
+  const { post: blogPost } = useBlogPost(blogMatch?.params?.slug);
+  const seo = getSeoForPath(location.pathname, blogPost || getBlogPost(blogMatch?.params?.slug));
+  const canonicalUrl = absoluteUrl(seo.canonicalUrl || seo.canonicalPath);
   const imageUrl = seo.image || seoDefaults.image;
   const pageType = seo.type || "website";
 
@@ -84,7 +92,6 @@ export default function PageSeo() {
 export function getKnownSeoPaths() {
   return [
     ...Object.keys(pageSeo),
-    ...BLOG_POSTS.map((post) => `/blog/${post.slug}`),
     ...CASE_STUDIES.map((study) => `/work/${study.slug}`),
   ];
 }
